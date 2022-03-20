@@ -5,7 +5,7 @@ on:
   push: 
     branches:
       - master
-  
+
 jobs:
   build:
     permissions:
@@ -41,24 +41,3 @@ jobs:
         run: |
           cd docker/
           docker build -f Dockerfile.test --build-arg dyninst_base=ghcr.io/${org}/dyninst-ubuntu-${{ matrix.ubuntu }}:latest -t dyninst-test ../
-          
-  analyze:
-    name: Analyze Dyninst
-    needs: build
-    container: dyninst-test
-    runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'cpp', 'python' ]
-
-    steps:
-
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: ${{ matrix.language }}
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1

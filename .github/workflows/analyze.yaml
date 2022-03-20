@@ -1,0 +1,27 @@
+name: Libabigail Analyze
+on: 
+  pull_request: []
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: '27 15 * * 0'
+
+jobs:
+  analyze:
+    name: Analyze Dyninst
+    container: ghcr.io/dyninst/dyninst-ubuntu-20.04:v12.1.0
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'cpp', 'python' ]
+
+    steps:
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: ${{ matrix.language }}
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
