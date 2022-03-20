@@ -1,4 +1,4 @@
-name: Libabigail Analyze
+name: Analyze
 on: 
   pull_request: []
   push:
@@ -15,9 +15,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'cpp', 'python' ]
+        language: ['cpp']
 
     steps:
+    - name: Ensure we are located in repository
+      run: cd /code
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
