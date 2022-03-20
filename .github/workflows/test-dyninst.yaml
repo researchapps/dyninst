@@ -5,11 +5,15 @@ on:
   push: 
     branches:
       - master
- 
+
 jobs:
   build:
     permissions:
       packages: read
+      actions: read
+      contents: read
+      security-events: write
+
     strategy:
       fail-fast: false
       matrix:
