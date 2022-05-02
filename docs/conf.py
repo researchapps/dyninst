@@ -15,9 +15,6 @@
 
 import sys
 import os
-from recommonmark.parser import CommonMarkParser
-
-source_parsers = {".md": CommonMarkParser}
 
 # -- General configuration ------------------------------------------------
 
@@ -33,7 +30,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinxcontrib.napoleon",
     "sphinxarg.ext",
-    "sphinx.ext.autosectionlabel",
+    "myst_parser"
 ]
 
 # Snakmake theme (made by SciAni).
@@ -114,7 +111,11 @@ html_theme = "sphinx_rtd_theme"
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-# html_theme_options = {}
+html_theme_options = {
+    "collapse_navigation" : False,
+    "sticky_navigation" : False,
+    "display_version" : True
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
