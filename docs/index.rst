@@ -85,6 +85,7 @@ Developed by
 
    overview
    building
+   using
    first_mutator
 
 .. toctree::
