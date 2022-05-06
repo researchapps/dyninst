@@ -86,8 +86,6 @@ Developed by
    overview
    building
    first_mutator
-   optimizations
-   pitfalls
 
 .. toctree::
    :caption: examples
@@ -101,7 +99,17 @@ Developed by
    examples/instrument_function
    examples/memory_access
    examples/retee
+
+.. toctree::
+   :caption: advanced
+   :name: advanced
+   :hidden:
+   :maxdepth: 2
    
+   optimizations
+   pitfalls
+
+
 .. toctree::
    :caption: toolkits 
    :name: toolkits
