@@ -1,0 +1,19 @@
+{
+    "name": "Nix User Environment",
+    "dockerFile": "Dockerfile",
+    "context": "../",
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.defaultProfile.linux": "bash"
+        },
+        // Note to Flux Developers! We can add extensions here that you like
+        "extensions": [
+    			"bbenoist.Nix",
+    			"EditorConfig.EditorConfig"
+    		]
+      }
+    },
+    // Needed for git security feature (this assumes you locally cloned to flux-core)
+    "postStartCommand": "git config --global --add safe.directory /workspaces/dyninst"    
+  }

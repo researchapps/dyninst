@@ -22,6 +22,17 @@ or for development of your own tools (e.g., have a container ready to go with Dy
 here when the containers are pushed to the Dyninst associated package registries. Instructions for usage
 and building locally are provided in the [docker](docker) directory.
 
+### Install with Nix
+
+A [flake.nix](flake.nix) is provided that you can use to build Dyninst for Nix.
+You can [read more about flakes here](https://nixos.wiki/wiki/Flakes).
+If you don't have Nix installed, you can use the [Developer Container](.devcontainer)
+environment - basically open via the container in VSCode and you are ready to go!
+Once in the container (or in an environment with Nix):
+
+```bash
+$ nix develop
+```
 
 ### Install with Spack
 
